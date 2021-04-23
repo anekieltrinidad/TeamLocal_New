@@ -9,7 +9,6 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
     @*<table class="table">
         <thead>
             <tr>
@@ -32,7 +31,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="card-content">
-                        <b class="card-title">
+                        <b class="card-title h1">
                             Product:
                             @Html.DisplayFor(modelItem => item.ProductName)
                         </b>
@@ -42,23 +41,19 @@
                         </p>
                         <p class="card-text">
                             <b>Price:</b>
-                            @Html.DisplayFor(modelItem => item.Price)
+                            <b class="text-success">@Html.DisplayFor(modelItem => item.Price)</b>
                         </p>
-                        <tr>
-
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
-
-                                <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
-                            </td>
-                        </tr>
+                        <div class="card-footer">
+                             
+                            <a asp-action="Edit" asp-route-id="@item.BusinessID" class="btn btn-warning btn-lg">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.BusinessID" class="btn btn-warning btn-lg">Delete</a>
+                        </div>
 
                     </div>
                 </div>
             </div>
         </div>
     }
-    </table>
 
 
 

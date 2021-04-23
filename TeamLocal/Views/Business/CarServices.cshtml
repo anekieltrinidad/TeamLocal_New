@@ -4,41 +4,94 @@
     ViewData["Title"] = "CarServices";
 }
 
-<h1>CarServices</h1>
+<h1>Car Services</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 @foreach (var item in Model)
 {
-    <div class="list-group-item">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-content">
-                    <b class="card-title">
-                        Business:
-                        @Html.DisplayFor(modelItem => item.BusinessName)
-                    </b>
-                    <p class="card-text">
-                        <b>Rate:</b>
-                        @Html.DisplayFor(modelItem => item.Rating)
-                    </p>
-                    <p>
-                        <b>Address:</b>
-                        @Html.DisplayFor(modelItem => item.BusinessAddress)
-                    </p>
-                    <p>
-                        <b>Contact:</b>
-                        @Html.DisplayFor(modelItem => item.ContactInfo)
-                    </p>
+    <div class="list-group">
+        <div class="list-group-item">
+            <div class="card">
+                <div class="card-body col-lg-6">
+                    <div class="card-content">
+                        <b class="card-title h1 text-warning">
+                            @Html.DisplayFor(modelItem => item.BusinessName)
+                        </b>
+                        <p class="card-text">
+                            <b>Rate:</b>
+                            @Html.DisplayFor(modelItem => item.Rating)
+                        </p>
+                        <p>
+                            <b>Address:</b>
+                            @Html.DisplayFor(modelItem => item.BusinessAddress)
+                        </p>
+                        <p>
+                            <b>Contacts:</b>
+                            <i class="text-primary">@Html.DisplayFor(modelItem => item.ContactInfo)</i>
+                        </p>
+                        <p>
+                            <b>Socials:</b>
+                            @Html.DisplayFor(modelItem => item.SocialMedia)
+                        </p>
+                        <p>
+                            <b>Overview:</b>
+                            @Html.DisplayFor(modelItem => item.Overview)
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer">
+                <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#mymodal">Rate</button>
+                <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#message">Message</button>
+                <button type="button" onclick="location.href='@Url.Action("Index", "Product")'" class="btn btn-warning btn-lg">Products</button>
+                <a asp-action="Edit" asp-route-id="@item.BusinessID" class="btn btn-warning btn-lg">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.BusinessID" class="btn btn-warning btn-lg">Delete</a>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+  
+
+    <div class="modal" id="mymodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Hi, how did you find our service?</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="star-container">
+                        <div class="star-widget">
+                            <input type="radio" name="star" id="5" />
+                            <label for="5" class="fas fa-star"></label>
+                            <input type="radio" name="star" id="4" />
+                            <label for="4" class="fas fa-star"></label>
+                            <input type="radio" name="star" id="3" />
+                            <label for="3" class="fas fa-star"></label>
+                            <input type="radio" name="star" id="2" />
+                            <label for="2" class="fas fa-star"></label>
+                            <input type="radio" name="star" id="1" />
+                            <label for="1" class="fas fa-star"></label>
+                            <form action="#">
+                                <star-header></star-header>
+                                <div class="btn">
+                                    <button type="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
 
-            <div class="card-footer text-right">
-                <button type="button" onclick="location.href='@Url.Action("Index", "Product")'" class="btn btn-warning btn-lg">Products</button>
-                <a asp-action="Edit" asp-route-id="@item.BusinessID">Edit</a>
-                <a asp-action="Delete" asp-route-id="@item.BusinessID">Delete</a>
-            </div>
         </div>
+
     </div>
 }

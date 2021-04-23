@@ -109,12 +109,12 @@ p {
 abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;
-  -webkit-text-decoration: underline dotted;
+  /*-webkit-text-decoration: underline dotted;*/
   text-decoration: underline dotted;
   cursor: help;
   border-bottom: 0;
-  -webkit-text-decoration-skip-ink: none;
-  text-decoration-skip-ink: none;
+  /*-webkit-text-decoration-skip-ink: none;
+  text-decoration-skip-ink: none;*/
 }
 
 address {
@@ -576,6 +576,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  color: black;
 }
 
 @media (min-width: 576px) {
@@ -1022,9 +1023,9 @@ pre code {
 
 @media (min-width: 768px) {
   .col-md {
-    -ms-flex-preferred-size: 0;
+    /*-ms-flex-preferred-size: 0;*/
     flex-basis: 0;
-    -ms-flex-positive: 1;
+    /*-ms-flex-positive: 1;*/
     flex-grow: 1;
     max-width: 100%;
   }
@@ -1194,9 +1195,9 @@ pre code {
 
 @media (min-width: 992px) {
   .col-lg {
-    -ms-flex-preferred-size: 0;
+    /*-ms-flex-preferred-size: 0;*/
     flex-basis: 0;
-    -ms-flex-positive: 1;
+    /*-ms-flex-positive: 1;*/
     flex-grow: 1;
     max-width: 100%;
   }
@@ -1366,9 +1367,9 @@ pre code {
 
 @media (min-width: 1200px) {
   .col-xl {
-    -ms-flex-preferred-size: 0;
+    /*-ms-flex-preferred-size: 0;*/
     flex-basis: 0;
-    -ms-flex-positive: 1;
+    /*-ms-flex-positive: 1;*/
     flex-grow: 1;
     max-width: 100%;
   }
@@ -1932,7 +1933,7 @@ pre code {
   opacity: 1;
 }
 
-.form-control::-ms-input-placeholder {
+/*.form-control::-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
@@ -1940,7 +1941,7 @@ pre code {
 .form-control::placeholder {
   color: #6c757d;
   opacity: 1;
-}
+}*/
 
 .form-control:disabled, .form-control[readonly] {
   background-color: #e9ecef;
@@ -10063,5 +10064,64 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+/*for rating (star icon style)*/
+ .star-container {
+    width: 400px;
+    background-color: #fff;
+    padding: 20px 30px;
+    border: 1px solid #6c757d;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.star-container .star-widget input {
+    display: none;
+}
+
+.star-container .text {
+    font-size: 25px;
+    color: #212529;
+}
+
+.star-widget label {
+    font-size: 40px;
+    color: #212529;
+    padding: 10px;
+    float: right;
+    transition: all 0.2s ease;
+}
+
+input:not(:checked) ~ label:hover,
+:not(:checked) ~ label:hover ~ label {
+    color: #ffc107;
+}
+
+input:checked ~ label {
+    color: #ffc107;
+    text-shadow: 0 0 20px #952;
+}
+
+
+.star-container form {
+    display: none;
+}
+
+input:checked ~ form {
+    display: block;
+}
+
+.form star-header {
+    width: 100%;
+    font-size: 25px;
+    color: #ffc107;
+    font-weight: 500;
+    margin: 5px 0 20px 0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
 }
 /*# sourceMappingURL=bootstrap.css.map */
