@@ -9,52 +9,56 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-@*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>*@
-        @foreach (var item in Model)
-        {
-            <div class="list-group-item">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-content">
-                            <b class="card-title">
-                                Product:
-                                @Html.DisplayFor(modelItem => item.ProductName)
-                            </b>
-                            <p class="card-text">
-                                <b>Description:</b>
-                                @Html.DisplayFor(modelItem => item.Description)
-                            </p>
-                            <p class="card-text">
-                                <b>Price:</b>
-                                @Html.DisplayFor(modelItem => item.Price)
-                            </p>
-                            <tr>
+<table class="table">
+    @*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>*@
+    @foreach (var item in Model)
+    {
+        <div class="list-group-item">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-content">
+                        <b class="card-title">
+                            Product:
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </b>
+                        <p class="card-text">
+                            <b>Description:</b>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </p>
+                        <p class="card-text">
+                            <b>Price:</b>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </p>
+                        <tr>
 
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ProductID">Edit</a> |
 
-                                    <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
-                                </td>
-                            </tr>
+                                <a asp-action="Delete" asp-route-id="@item.ProductID">Delete</a>
+                            </td>
+                        </tr>
 
-                        </div>
                     </div>
                 </div>
             </div>
-        }
-        @*</tbody>*@
+        </div>
+    }
+    </table>
+
+
+

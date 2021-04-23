@@ -4,46 +4,81 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>List of Businesses</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<table id="records" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Overview)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SocialMedia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactInfo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Overview)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SocialMedia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryID)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BusinessID">Edit</a> |
+                   
+                    <a asp-action="Delete" asp-route-id="@item.BusinessID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-@foreach (var item in Model) {
-    <div class="list-group-item">
-        <div class="card">
-            <div class="card-body">
-                <div class="card-content">
-                    <b class="card-title">
-                        Business:
-                        @Html.DisplayFor(modelItem => item.BusinessName)
-                    </b>
-                    <p class="card-text">
-                        <b>Rate:</b>
-                        @Html.DisplayFor(modelItem => item.Rating)
-                    </p>
-                    <p>
-                        <b>Address:</b>
-                        @Html.DisplayFor(modelItem => item.BusinessAddress)
-                    </p>
-                    <p>
-                        <b>Contact:</b>
-                        @Html.DisplayFor(modelItem => item.ContactInfo)
-                    </p>
-                </div>
-            </div>
-                
-            <div class="card-footer text-right">
-                <button type="button" onclick="location.href='@Url.Action("Create", "Business")'"class="btn btn-warning btn-lg">More..</button>
-            </div>
-        </div>
-   </div>
- 
-  
- 
-        
-           
-        
- }
- 
+
+
+@section Scripts{
+    <script src="~/lib/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/lib/datatables/js/dataTables.bootstrap4.js"></script>
+    <script>
+            $(document).ready(function () {
+                $('#records').DataTable();
+            });
+    </script>
+}
