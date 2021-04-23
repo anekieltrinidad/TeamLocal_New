@@ -1,0 +1,44 @@
+﻿@model IEnumerable<TeamLocal.Models.Business>
+
+@{
+    ViewData["Title"] = "Health";
+}
+
+<h1>Health</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@foreach (var item in Model)
+{
+    <div class="list-group-item">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-content">
+                    <b class="card-title">
+                        Business:
+                        @Html.DisplayFor(modelItem => item.BusinessName)
+                    </b>
+                    <p class="card-text">
+                        <b>Rate:</b>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </p>
+                    <p>
+                        <b>Address:</b>
+                        @Html.DisplayFor(modelItem => item.BusinessAddress)
+                    </p>
+                    <p>
+                        <b>Contact:</b>
+                        @Html.DisplayFor(modelItem => item.ContactInfo)
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-footer text-right">
+                <button type="button" onclick="location.href='@Url.Action("Index", "Product")'" class="btn btn-warning btn-lg">Products</button>
+                <a asp-action="Edit" asp-route-id="@item.BusinessID">Edit</a>
+                <a asp-action="Delete" asp-route-id="@item.BusinessID">Delete</a>
+            </div>
+        </div>
+    </div>
+}
