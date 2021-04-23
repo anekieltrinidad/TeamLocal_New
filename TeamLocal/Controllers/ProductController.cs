@@ -36,12 +36,15 @@ namespace TeamLocal.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Product record, IFormFile ImagePath)
+        public IActionResult Create(Product record)
         {
+            var selectedBusiness = _context.Businesses.Where(b => b.BusinessID == record.BusinessID).SingleOrDefault();
             var product = new Product();
+
             product.ProductName = record.ProductName;
             product.Description = record.Description;
             product.Price = record.Price;
+            product.Business = selectedBusiness;
 
             //if(ImagePath != null)
             //{
