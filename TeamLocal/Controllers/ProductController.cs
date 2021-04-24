@@ -24,9 +24,16 @@ namespace TeamLocal.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
-            var list = _context.Products.ToList();
+            if (id == null)
+            {
+                var listAll = _context.Products.ToList();
+
+                return View(listAll);
+            }
+            var list = _context.Products.Where(b => b.BusinessID == id).ToList();
+
             return View(list);
         }
 
