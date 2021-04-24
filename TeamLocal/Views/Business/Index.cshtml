@@ -4,7 +4,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<ol class="breadcrumb">
+    <li><p>View Per Category: &nbsp;</p></li>
+    <li class="breadcrumb-item"><a asp-controller="Business" asp-action="CarServices">Car Services</a></li>
+    <li class="breadcrumb-item"><a asp-controller="Business" asp-action="Cleaning">Cleaning</a></li>
+    <li class="breadcrumb-item"><a asp-controller="Business" asp-action="Clothing">Clothing</a></li>
+    <li class="breadcrumb-item"><a asp-controller="Business" asp-action="Food">Food</a></li>
+    <li class="breadcrumb-item"><a asp-controller="Business" asp-action="Health">Health</a></li>
+    <li class="breadcrumb-item"><a asp-controller="Business" asp-action="HomeImprovement">Home Improvement</a></li>
+    <li class="breadcrumb-item"><a asp-controller="Business" asp-action="Technology">Technology</a></li>
+    <li class="breadcrumb-item"><a asp-controller="Business" asp-action="Other">Other</a></li>
+    
+</ol>
+
+<h1>Businesses</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -29,9 +42,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
             </th>
             <th></th>
         </tr>
@@ -58,9 +68,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Rating)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category.CategoryID)
-                </td>
+
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.BusinessID">Edit</a> |
                    
